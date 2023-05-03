@@ -26,23 +26,9 @@
             <li class="nav-item">
             <%= link_to "ログアウト",destroy_admin_session_path,method: :delete,class: 'nav-link text-dark' %>
             </li>
-            <% elsif customer_signed_in? %>
-            <p class="text-center">ようこそ！<%= current_customer.last_name %>さん</p>
-            <li class="nav-item">
-            <%= link_to "ログアウト",destroy_customer_session_path,method: :delete,class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-            <%= link_to "マイページ",customers_my_page_path,class: 'nav-link text-dark' %>
-            </li>
             <% else %>
             <li class="nav-item">
-            <%= link_to "About",about_path,class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-            <%= link_to "新規登録",new_customer_registration_path,class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-            <%= link_to "ログイン",new_customer_session_path,class: 'nav-link text-dark' %>
+            <%= link_to "ログイン",new_admin_session_path,class: 'nav-link text-dark' %>
             </li>
             <% end %>
           </div>
@@ -52,4 +38,3 @@
      <%= yield %>
   </body>
 </html>
-
