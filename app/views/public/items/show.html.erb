@@ -1,0 +1,24 @@
+<div class="container">
+ <div class="col-md-8 offset-md-1">
+
+ <table>
+    <% if @item.image.attached? %>
+     <%= image_tag @item.image,size:"200x200" %>
+    <% else %>
+     <%= image_tag 'no_image', size: "200x200" %>
+    <% end %>
+  <tr>
+    <td><%= @item.name %></td>
+  </tr>
+  <tr>
+    <td><%= @item.introduction %></td>
+  </tr>
+  <tr>
+    <td>¥<%= @item.tax_included_price %>(税込)</td>
+  </tr>
+  </table>
+
+ <span><%= link_to "カートに入れる", class: 'btn btn-success' %></span>
+
+ </div>
+</div>
