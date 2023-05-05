@@ -10,16 +10,20 @@ Rails.application.routes.draw do
   root to:'public/homes#top'
   get 'about' => 'homes#about'
   get 'admin' => 'admin/homes#top'
-  # 会員側のルーティング設定
-  get 'items' => 'public/items#index'
+
   # 管理者側のルーティング設定
   namespace :admin do
-    get 'items' => 'items#index'
-    get 'items/new' => 'items#new'
-    post 'items' => 'items#create'
-    get 'items/:id' => 'items#show'
-    get 'items/:id/edit' => 'items#edit'
-    patch 'items/:id' => 'items#update'
+    # get 'items' => 'items#index'
+    # post 'items' => 'items#create'
+    # get 'items/new' => 'items#new'
+    # get 'items/:id' => 'items#show'
+    # get 'items/:id/edit' => 'items#edit'
+    # patch 'items/:id' => 'items#update'
+    resources :items,except:[:destroy]
+  end
+
+  namespace :admin do
+    resources :customers,only: [:index,:show,:edit,:update]
   end
 
   scope module: :public do
@@ -28,6 +32,8 @@ Rails.application.routes.draw do
   patch 'customers/information' => 'customers#update'
   get 'customers/confirm_withdraw' => 'customers#confirm_withdraw'
   patch 'customers/withdraw' => 'customers#withdraw'
+
+  resources :items,only: [:index,:show]
 
   end
 
