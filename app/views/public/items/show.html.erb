@@ -17,7 +17,7 @@
     <td>¥<%= @item.tax_included_price %>(税込)</td>
   </tr>
   </table>
-
+ <%= f.select :amount, *[1..10] %>
  <span><%= link_to "カートに入れる", class: 'btn btn-success' %></span>
 
  </div>
