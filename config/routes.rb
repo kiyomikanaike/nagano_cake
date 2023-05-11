@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   patch 'customers/withdraw' => 'customers#withdraw'
 
   resources :items,only: [:index,:show]
+  resources :cart_items,only: [:index,:create,:destroy]
 
   end
 
