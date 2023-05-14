@@ -7,6 +7,17 @@
        会員でない方も商品の閲覧はできますが、<br>
        購入には会員登録が必要になります。
     </p>
+
+    <h3>新着商品</h3>
+    <% @items.each do |item| %>
+
+    <%= image_tag item.get_image,size:"200x200"%>
+    <%= link_to item.name,item_path(item.id),class: 'text-dark' %>
+    ¥<%= item.price %>
+    <% end %>
+    
+    <%= link_to "全ての商品を見る ＞",items_path %>
+
   </div>
  </div>
 </div>
