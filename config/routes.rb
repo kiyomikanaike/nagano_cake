@@ -24,6 +24,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :customers,only: [:index,:show,:edit,:update]
+    resources :orders,only: [:show]
   end
 
   scope module: :public do
