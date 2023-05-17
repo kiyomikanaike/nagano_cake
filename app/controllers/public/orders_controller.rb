@@ -41,7 +41,7 @@ class Public::OrdersController < ApplicationController
 
 
   def index
-
+     @order = Order.new(order_params)
   end
 
   def show
