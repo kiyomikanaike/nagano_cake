@@ -1,7 +1,7 @@
 <div class="container">
   <h2>注文履歴詳細</h2>
     <h5 class="font-weight-bold">購入者</h5>
-     <%= link_to @order.customer_id,admin_customer(customer.id),class: 'text-dark' %>
+     <%= link_to @order.customer.last_name+@order.customer.first_name,admin_customer_path(@order.customer),class: 'text-dark' %>
     <h5 class="font-weight-bold">注文日</h5>
     <%= @order.created_at %>
     <h5 class="font-weight-bold">配送先</h5>
@@ -10,7 +10,7 @@
     <%= @order.delivery_name %>
     <h5 class="font-weight-bold">支払方法</h5>
     <%= @order.payment_method_i18n %>
-    
+
     <table class="w-100 table">
       <tr>
        <th>商品名</th>
@@ -19,18 +19,18 @@
        <th>小計</th>
        <th></th>
       </tr>
-      <% @cart_items.each do |cart_item| %>
+      <% @order_items.each do |order_item| %>
       <tr>
-       <td><%= cart_item.item.name %></td>
-       <td><%= cart_item.item.with_tax_price %></td>
-       <td><%= cart_item.amount %></td>
-       <td><%= cart_item.subtotal %></td>
+       <td><%= order_item.item.name %></td>
+       <td><%= order_item.item.with_tax_price %></td>
+       <td><%= order_item.amount %></td>
+       <td><%= order_item.subtotal %></td>
        <td></td>
-       <% @total_price += cart_item.subtotal %>
+       <% @total_price += order_item.subtotal %>
       </tr>
       <% end %>
       </table>
-      
+
       <div class="text-right">商品合計 <%= @total_price %>円</div>
       <div class="text-right">送料 800円</div>
       <div class="text-right">請求金額 <%= @total_price + 800 %>円</div>
