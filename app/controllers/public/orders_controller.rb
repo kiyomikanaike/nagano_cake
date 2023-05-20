@@ -26,7 +26,7 @@ class Public::OrdersController < ApplicationController
       order_item = OrderItem.new
       order_item.item_id = cart.item_id
       order_item.order_id = @order.id
-      order_item.purchase_price = @order.billing_amount
+      order_item.purchase_price = cart.item.with_tax_price
       order_item.amount = cart.amount
       order_item.save
     end
@@ -41,10 +41,13 @@ class Public::OrdersController < ApplicationController
 
 
   def index
-     @order = Order.new(order_params)
+     @orders = current_customer.orders.all
   end
 
   def show
+     @order = Order.find(params[:id])
+     @order_items = @order.order_items
+     @total_price = 0
   end
 
   private
