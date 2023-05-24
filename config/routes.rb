@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :customers,only: [:index,:show,:edit,:update]
     resources :orders,only: [:show]
+    resources :genres,only: [:index,:create,:edit,:update]
   end
 
   scope module: :public do
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
   resources :items,only: [:index,:show]
   resources :cart_items,only: [:index,:create,:destroy,:update]
   resources :orders,only: [:index,:show,:create,:new]
+  resources :address,only: [:new,:create,:edit,:destroy,:update]
 
   end
 

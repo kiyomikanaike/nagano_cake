@@ -20,9 +20,21 @@
          </th>
      </tr>
      <tr>
+         <th><label for="inputGenreName">ジャンル</label>
+         <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :genre_name) %>
+         </th>
+     </tr>
+     <tr>
          <th><label for="inputPrice">税抜価格</label>
          <%= f.number_field :price, placeholder: "税抜価格" %>円
          </th>
+     </tr>
+     <tr>
+         <th><label for="inputPrice">販売ステータス</label>
+          <%= f.radio_button :sales_status, true %>
+          <%= f.label :sales_status,"販売中" %>
+          <%= f.radio_button :sales_status, false %>
+          <%= f.label :sales_status,"販売停止中" %></th>
      </tr>
      <tr>
          <th><%= f.submit "変更を保存",class: 'btn btn-success' %></th>
