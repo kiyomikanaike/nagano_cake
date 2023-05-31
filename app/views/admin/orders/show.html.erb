@@ -10,6 +10,8 @@
     <%= @order.delivery_name %>
     <h5 class="font-weight-bold">支払方法</h5>
     <%= @order.payment_method_i18n %>
+    <h5 class="font-weight-bold">注文ステータス</h5>
+    <%=  %>
 
     <table class="w-100 table">
       <tr>
@@ -22,7 +24,7 @@
       <% @order_items.each do |order_item| %>
       <tr>
        <td><%= order_item.item.name %></td>
-       <td><%= order_item.item.with_tax_price %></td>
+       <td><%= order_item.purchase_price %></td>
        <td><%= order_item.amount %></td>
        <td><%= order_item.subtotal %></td>
        <td></td>

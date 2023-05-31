@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
 }
   root to:'public/homes#top'
-  get 'about' => 'homes#about'
+  get 'about' => 'public/homes#about'
   get 'admin' => 'admin/homes#top'
 
   # 管理者側のルーティング設定
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   resources :items,only: [:index,:show]
   resources :cart_items,only: [:index,:create,:destroy,:update]
   resources :orders,only: [:index,:show,:create,:new]
-  resources :address,only: [:new,:create,:edit,:destroy,:update]
+  resources :addresses,only: [:index,:create,:edit,:destroy,:update]
 
   end
 
