@@ -1,8 +1,14 @@
 <div class="container">
-  <h4>ジャンル編集</h4>
-  <%= form_with model: @genre,url: admin_genre_path do |f| %>
-  <label for="inputGenreName">ジャンル名</label>
-  <%= f.text_field :genre_name, autofocus: true %>
-  <%= f.submit "変更を保存",class: 'btn btn-success' %>
-  <% end %>
+ <div class="row">
+  <div class="mx-auto">
+
+    <h4 class="mt-5 mb-4">ジャンル編集</h4>
+    <%= form_with model: @genre,url: admin_genre_path do |f| %>
+    <label for="inputGenreName">ジャンル名</label>
+    <%= f.text_field :genre_name, autofocus: true %>
+    <%= f.submit "変更を保存",class: 'btn btn-success' %>
+    <% end %>
+
+  </div>
+ </div>
 </div>

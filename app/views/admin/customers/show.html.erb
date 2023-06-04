@@ -1,5 +1,8 @@
-<div class="col-5 ml-3">
-  <h4><%= @customer.last_name+@customer.first_name %>さんの会員詳細</h4>
+<div class="container">
+ <div class="row">
+  <div class="mx-auto">
+
+  <h4 class="mt-5 mb-4"><%= @customer.last_name+@customer.first_name %>さんの会員詳細</h4>
   <table class="table">
     <tr>
       <th>会員ID</th>
@@ -40,4 +43,7 @@
   </table>
 
   <span><%= link_to "編集する",edit_admin_customer_path,class: 'btn btn-success' %></span>
+
+  </div>
+ </div>
 </div>

@@ -1,19 +1,31 @@
 <div class="container">
-  <h2>注文履歴詳細</h2>
-    <h5 class="font-weight-bold">購入者</h5>
-     <%= link_to @order.customer.last_name+@order.customer.first_name,admin_customer_path(@order.customer),class: 'text-dark' %>
-    <h5 class="font-weight-bold">注文日</h5>
-    <%= @order.created_at %>
-    <h5 class="font-weight-bold">配送先</h5>
-    <%= @order.delivery_postal_code %>
-    <%= @order.delivery_address %>
-    <%= @order.delivery_name %>
-    <h5 class="font-weight-bold">支払方法</h5>
-    <%= @order.payment_method_i18n %>
-    <h5 class="font-weight-bold">注文ステータス</h5>
-    <%=  %>
 
-    <table class="w-100 table">
+  <h4 class="mt-5 mb-4">注文履歴詳細</h4>
+    <table>
+      <tr>
+        <th>購入者</th>
+         <td><%= link_to @order.customer.last_name+@order.customer.first_name,admin_customer_path(@order.customer),class: 'text-dark' %></td>
+      </tr>
+
+      <tr>
+        <th>注文日</th>
+         <td><%= @order.created_at %></td>
+      </tr>
+
+      <tr>
+        <th>配送先</th>
+          <td><%= @order.delivery_postal_code %>
+          <%= @order.delivery_address %></td>
+          <td><%= @order.delivery_name %></td>
+      </tr>
+
+      <tr>
+         <th>支払方法</th>
+         <td><%= @order.payment_method_i18n %></td>
+      </tr>
+    </table>
+
+    <table class="mt-4 w-100 table">
       <tr>
        <th>商品名</th>
        <th>単価（税込）</th>
